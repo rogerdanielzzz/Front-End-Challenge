@@ -1,0 +1,20 @@
+.Container {
+    width: 12rem;
+    background-color: #1f364850;
+    margin: 10px;
+    transition: all 0.6s ease  ;
+
+    .Title{
+        color: gray;
+    }
+
+    &:hover{
+      cursor:pointer;
+      transform: translateY(-6px);
+
+
+        .Title{
+            color: #d8ad00;
+        }
+    }
+}

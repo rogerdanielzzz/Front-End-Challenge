@@ -1,10 +1,13 @@
 import './App.scss';
 import NavBar from "./components/NavBar/NavBar.jsx"
+import CardContainer from "./components/CardContainer/CardContainer.jsx"
+
 function App() {
   return (
     <div className="App">
       <NavBar/>
-           <h1>Pepe</h1>
+      <CardContainer/>
+           <h1>Working</h1>
     </div>
   );
 }
