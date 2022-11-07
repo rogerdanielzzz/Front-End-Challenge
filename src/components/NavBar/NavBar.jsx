@@ -6,43 +6,40 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import SearchIcon from "../../img/search.svg"
+import logo from "../../img/logo.png"
+
 import Style from "./NavBar.module.scss"
 const NavBar = () => {
   return (
-    <Navbar className={Style.jos}  expand="lg" variant= "light">
+    <Navbar className={Style.NavContainer}  expand="lg" >
     <Container fluid>
-      <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
+      <Navbar.Brand href="#"><img className={Style.logo} src={logo} alt="Star War Logo" /></Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
         <Nav
           className="me-auto my-2 my-lg-0"
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link href="#action1">Home</Nav.Link>
-          <Nav.Link href="#action2">Link</Nav.Link>
-          <NavDropdown title="Link" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">
-              Something else here
-            </NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href="#" disabled>
+          <Nav.Link className={Style.NavText} href="#action1">Home</Nav.Link>
+          <Nav.Link className={Style.NavText} href="#action2">Link</Nav.Link>
+          
+          <Nav.Link className={Style.NavText} href="#" disabled>
             Link
           </Nav.Link>
         </Nav>
         <Form className="d-flex">
-          <Form.Control
+          <Form.Control id={Style.sInput}
             type="search"
             placeholder="Search"
-            className="me-2"
+            className="rounded-left"
             aria-label="Search"
           />
-          <Button className={Style.pepe} variant="outline-warning"><img src={SearchIcon} /></Button>
+          <Button className={Style.sButton}><img src={SearchIcon} /><i className="bi bi-search"></i></Button>
+
+
+
+
         </Form>
       </Navbar.Collapse>
     </Container>

@@ -1,8 +1,38 @@
-.jos{
-   background-color: white;
-   color: green;
-    .pepe{
-        background-color: red;
+.NavContainer{
+    background-image: url(../../img/StarfieldSimulation.gif);
+    background-size: contain;
+   .NavText{
+    color: gray;
+    &:hover{
+        color: #ffce00;
+    }
+
+   }
+   .logo{
+    max-width: 100px;
+    max-height: 100px;
+   }
+   #sInput{
+    background-color: red;
+    border: none;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #80808050;
+    color: white;
+
+
+    margin: 0;
+   
+    &:focus{
+        box-shadow: none;
+    }
+   }
+    .sButton{
+        border: none;
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 0%;
+        background-color: #80808050;
+
     }
 }
 
