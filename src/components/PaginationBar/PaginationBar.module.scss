@@ -1,0 +1,66 @@
+.PaginationContainer{
+
+    .First{
+        background-color: #1f364850;
+        color: gray;
+
+
+
+    font-size: 1.3rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin: 0;
+    border: none;
+    &:hover{
+        border-color: #d8ad00;
+        color: #d8ad00;
+    }
+
+}
+
+.buttonPagination{
+    color: gray;
+
+    background-color: #1f364850;
+
+
+    font-size: 1.3rem;
+    margin: 0;
+    border: none;
+    &:hover{
+        border-color: #d8ad00;
+        color: #d8ad00;
+    }
+    
+
+}
+.currentPage{
+    font-size: 1.3rem;
+    cursor:none;
+    margin: 0;
+    border: none;
+    background-color: #d8ad00;
+
+     
+    &:hover{
+    cursor: default;
+    }
+    
+}
+
+.Last{
+    background-color: #1f364850;
+    color: gray;
+
+
+    font-size: 1.3rem;
+    margin: 0;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    &:hover{
+        border-color: #d8ad00;
+        color: #d8ad00;
+    }
+
+}}
