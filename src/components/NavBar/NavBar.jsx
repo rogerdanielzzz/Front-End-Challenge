@@ -1,18 +1,25 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import SearchIcon from "../../img/search.svg"
 import logo from "../../img/logo.png"
-
+import Searchbar from '../Searchbar/Searchbar';
 import Style from "./NavBar.module.scss"
+import { searchCharacter } from "../../redux/actions/index.js";
+import { useDispatch } from "react-redux";
+
+
+
+
 const NavBar = () => {
+    const dispatch = useDispatch();
+
+    let handle = (el) => dispatch(searchCharacter(el, 1));
+
     return (
         <Navbar className={Style.NavContainer} expand="lg" >
             <Container fluid>
-                <Navbar.Brand href="#"><img className={Style.logo} src={logo} alt="Star War Logo" /></Navbar.Brand>
+                <Navbar.Brand className={Style.con} href="#"><img className={Style.logo} src={logo} alt="Star War Logo" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav
@@ -27,19 +34,7 @@ const NavBar = () => {
                             Link
                         </Nav.Link>
                     </Nav>
-                    <Form className="d-flex">
-                        <Form.Control id={Style.sInput}
-                            type="search"
-                            placeholder="Search"
-                            className="rounded-left"
-                            aria-label="Search"
-                        />
-                        <Button className={Style.sButton}><img src={SearchIcon} alt="Search Icon" /></Button>
-
-
-
-
-                    </Form>
+                   <Searchbar handle={handle} />
                 </Navbar.Collapse>
             </Container>
         </Navbar>

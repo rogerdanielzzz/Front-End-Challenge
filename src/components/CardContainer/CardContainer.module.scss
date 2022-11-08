@@ -1,7 +1,19 @@
-.Container{
+.Container{ 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 
+}
+.ContainerPagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    
+}
+.mssg{
+    margin: 20vh 0;
+    color: rgb(202, 202, 202);
 }

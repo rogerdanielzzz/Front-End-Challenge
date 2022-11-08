@@ -6,7 +6,6 @@ function App() {
     <div className="App">
       <NavBar/>
       <CardContainer/>
-           <h1>Working On Progress</h1>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const CountryCard = (props) => {
 
     return (
         <Card className={Style.Container}>
-            <Card.Img variant="top" src={imgSource} />
+           {!props.finded&& <Card.Img variant="top" src={imgSource} />}
             <Card.Body>
                 <Card.Title className={Style.Title}>{props.name}</Card.Title>
                 <Card.Text>

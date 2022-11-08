@@ -3,14 +3,10 @@ import { useSelector } from "react-redux";
 import Style from "./PaginationBar.module.scss"
 
 
-const PaginationBar = ({paginate}) => {
-
+const PaginationBar = ({paginate, totalElements, elementsPerPage}) => {
   const page = useSelector((state) => state.currentPage)
-  const totalCharacters = useSelector((state) => state.totalCharacters)
-console.log(page)
-  //className={page !== el ? Style.buttonPagination : Style.currentPage}
   const totalPages = [];
-  for (let i = 1; i <= Math.ceil(totalCharacters / 10); i++) {
+  for (let i = 1; i <= Math.ceil(totalElements / elementsPerPage); i++) {
     totalPages.push(i);
   }
 
@@ -19,7 +15,7 @@ console.log(page)
   return (
 
     <div className={Style.PaginationContainer}>
-      <button className={Style.First}  onClick={() => paginate((page-1))}>Prev</button>
+      <button className={page == 1 ? Style.Disabled : Style.First}  onClick={() => paginate((page-1))}>Prev</button>
       {totalPages &&
         totalPages.map((el) => (
           <button
@@ -31,7 +27,7 @@ console.log(page)
 
 
         ))}
-      <button className={Style.Last} onClick={() => paginate((page+1))}>Next</button>
+      <button className={page == totalPages.length ? Style.Disabled : Style.Last} onClick={() => paginate((page+1))}>Next</button>
 
     </div>
 
