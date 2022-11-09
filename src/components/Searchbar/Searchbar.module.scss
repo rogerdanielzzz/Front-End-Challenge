@@ -1,24 +1,23 @@
-#sInput{
-    background-color: red;
+#sInput {
     border: none;
     border-top-right-radius: 0%;
     border-bottom-right-radius: 0%;
     background-color: #80808050;
     color: white;
-
-
     margin: 0;
-   
-    &:focus{
+
+    &:focus {
         box-shadow: none;
     }
-   }
-    .sButton{
-        border: none;
-        border-top-left-radius: 0%;
-        border-bottom-left-radius: 0%;
-        background-color: #80808050;
-        &:hover{
-            background-color: #80808095;
-        }
+}
+
+.sButton {
+    border: none;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    background-color: #80808050;
+
+    &:hover {
+        background-color: #80808095;
     }
+}

@@ -39,6 +39,8 @@ const CardContainer = () => {
 
   useEffect(() => {
     document.title = "Star Wars | Characters";
+    dispatch(loadingSwitcher(true))
+
     // In every mount of this component the app must be check that the last search is empty, if its true so we are in a search a we only mus paginate 
     if (lastSearch) {
       dispatch(searchCharacter(lastSearch, pageGlobal))
@@ -46,7 +48,6 @@ const CardContainer = () => {
       dispatch(getCharacter(pageGlobal));
     }
 
-    dispatch(loadingSwitcher(true))
     //a cleaner state function when the component is unmount
     return () => {
       dispatch(cleanerFinded())
@@ -58,10 +59,10 @@ const CardContainer = () => {
 
 
   return (
-// Conditional render if the state with character finded is not empty so we render de result in other case we only render all cards
+    // Conditional render if the state with character finded is not empty so we render de result in other case we only render all cards
     <React.Fragment>
       <Container className={Style.Container}>
-        
+
         {isLoading ? <Loader />
           : charFinded.error ?
             <div>

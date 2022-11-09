@@ -1,45 +1,48 @@
-.NavContainer{
+.NavContainer {
     background-image: url(../../img/StarfieldSimulation.gif);
     background-size: contain;
     justify-content: center;
-   
-    .active{
+
+    .active {
         font-weight: 600;
-    color: gray;
-    margin: 0 5px;
-    text-decoration: none;
-        &:hover{
+        color: gray;
+        margin: 0 5px;
+        text-decoration: none;
+
+        &:hover {
             cursor: default;
         }
 
     }
-    .NavText{
-    font-weight: 500;
-    color: white;
-    margin: 0 5px;
-    text-decoration: none;
-    &:hover{
-        color: #ffce00;
-    }
-   
 
-   }
-   
-   .logo{
-    max-width: 100px;
-    max-height: 100px;
-   }
+    .NavText {
+        font-weight: 500;
+        color: white;
+        margin: 0 5px;
+        text-decoration: none;
+
+        &:hover {
+            color: #ffce00;
+        }
+
+
+    }
+
+    .logo {
+        max-width: 100px;
+        max-height: 100px;
+    }
 
 }
 
 
 @media only screen and (max-width: 880px) {
- 
-    .con{
+
+    .con {
 
         margin-left: 30vw;
         margin-right: auto;
-   
-   
-      }
-  }
+
+
+    }
+}

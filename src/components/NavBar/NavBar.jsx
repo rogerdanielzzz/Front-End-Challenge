@@ -1,26 +1,32 @@
+//Dependencies import
 import React from 'react'
+import { useDispatch } from "react-redux";
+import { Link, useLocation } from "react-router-dom"
+import { searchCharacter } from "../../redux/actions/index.js";
+// Bootstrap Component
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from "../../img/logo.png"
+// Components made with React
 import Searchbar from '../Searchbar/Searchbar';
+// Style in SCSS format
 import Style from "./NavBar.module.scss"
-import { searchCharacter } from "../../redux/actions/index.js";
-import { useDispatch } from "react-redux";
-import { Link , useLocation} from "react-router-dom"
+//Img import
+import logo from "../../img/logo.png"
 
 
-
-
-
+//This is a navbar component that will be rendered in all sections
 const NavBar = () => {
     const dispatch = useDispatch();
+    // Hook to knoe in which route we are 
     const location = useLocation();
-    let route =location.pathname
+    let route = location.pathname
 
+    // Search Bar is a reusable component so we need to provide a function by props
     let handle = (el) => dispatch(searchCharacter(el, 1));
 
     return (
+        // navbar with condition navlink style class if we already are in the route
         <Navbar className={Style.NavContainer} expand="lg" >
             <Container fluid>
                 <Link to={`/`}>
@@ -33,13 +39,9 @@ const NavBar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link className={route =="/"? Style.active :Style.NavText} to={`/`}>
+                        <Link className={route === "/" ? Style.active : Style.NavText} to={`/`}>
                             Characters
                         </Link>
-                        <Link className={route =="/about"? Style.active :Style.NavText} to={`/about`}>
-                            About
-                        </Link>
-
 
                     </Nav>
                     <Searchbar handle={handle} />
