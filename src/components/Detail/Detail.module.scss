@@ -1,0 +1,25 @@
+.Container{
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    .Father{
+        
+
+        .Title{
+            color: #ffce00;
+            text-align: center;
+
+        }
+      
+        background-color: #80808050;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        .List{
+
+            background-color: transparent;
+            color: white;
+
+        }
+    }
+}

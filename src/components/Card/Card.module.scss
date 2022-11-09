@@ -1,4 +1,8 @@
-.Container {
+.link{
+    text-decoration: none;
+    color: gray;
+    .Container {
+        
     width: 12rem;
     background-color: #1f364850;
     margin: 10px;
@@ -11,10 +15,10 @@
     &:hover{
       cursor:pointer;
       transform: translateY(-6px);
-
+        color: gray;
 
         .Title{
             color: #d8ad00;
         }
     }
-}
+}}

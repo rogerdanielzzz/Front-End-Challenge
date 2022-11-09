@@ -3,8 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import SearchIcon from "../../img/search.svg"
 import Style from './Searchbar.module.scss'
+import { useHistory} from "react-router-dom"
+
 
 const Searchbar = ({ handle }) => {
+    const navigate = useHistory();
     const [texto, setTexto] = useState("")
     const handleChange = (e) => {
         setTexto(e.target.value)
@@ -12,7 +15,8 @@ const Searchbar = ({ handle }) => {
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        handle(texto)
+        handle(texto).then(()=> navigate.push("/"))
+        e.target.reset()
 
     }
 

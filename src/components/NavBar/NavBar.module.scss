@@ -2,11 +2,26 @@
     background-image: url(../../img/StarfieldSimulation.gif);
     background-size: contain;
     justify-content: center;
-   .NavText{
+   
+    .active{
+        font-weight: 600;
     color: gray;
+    margin: 0 5px;
+    text-decoration: none;
+        &:hover{
+            cursor: default;
+        }
+
+    }
+    .NavText{
+    font-weight: 500;
+    color: white;
+    margin: 0 5px;
+    text-decoration: none;
     &:hover{
         color: #ffce00;
     }
+   
 
    }
    

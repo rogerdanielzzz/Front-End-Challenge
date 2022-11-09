@@ -10,6 +10,7 @@ import PaginationBar from "../PaginationBar/PaginationBar.jsx";
 
 const CardContainer = () => {
 
+
   const dispatch = useDispatch();
 
   const characters = useSelector((state) => state.charArr);
@@ -19,6 +20,11 @@ const CardContainer = () => {
   const totalCharacters = useSelector((state) => state.totalCharacters)
   const totalFinded = useSelector((state) => state.totalFinded)
   const lastSearch = useSelector((state) => state.lastSearch)
+  const arrId = useSelector((state) => state.idArr)
+
+  let cleaner = () => dispatch(cleanerFinded())
+
+
 
 
 
@@ -30,57 +36,72 @@ const CardContainer = () => {
 
   useEffect(() => {
     document.title = "Star Wars | Characters";
-    
 
+    dispatch(cleanerFinded())
 
     if (lastSearch) {
       dispatch(searchCharacter(lastSearch, pageGlobal))
 
-    }  else{ 
+    } else {
       dispatch(getCharacter(pageGlobal));
     }
 
     dispatch(loadingSwitcher(true))
 
-  }, [dispatch, pageGlobal, lastSearch]);
+    return () => {
+      dispatch(cleanerFinded())
+
+
+    }
+
+  }, [dispatch, pageGlobal]);
 
 
   return (
 
     <React.Fragment>
-      <Container className={Style.ContainerPagination}>
-
-        {!isLoading && !charFinded.error&& <PaginationBar paginate={paginate} totalElements={totalElements} elementsPerPage={10} />}
-      </Container>
+    
       <Container className={Style.Container}>
 
-        {isLoading ? <Loader /> : charFinded.error? <h1 className={Style.mssg}>{charFinded.error}</h1>:charFinded.length > 0 ? (charFinded.map((el) => (
+        {isLoading ? <Loader />
+          : charFinded.error ?
+            <div>
+              <h1 className={Style.mssg}>{charFinded.error}</h1>
+              <button className={Style.btn} onClick={cleaner}>Go Back</button>
+            </div>
+            : charFinded.length > 0 ? <React.Fragment>{(charFinded.map((el) => (
 
-          <Card
-            finded={true}
-            id={(charFinded.indexOf(el) + 1) + idMaker}
-            key={(charFinded.indexOf(el) + 1) + idMaker}
-            name={el.name}
-            height={el.height}
-            mass={el.mass}
-          />
-        )))
-          :
-          (characters.map((el) => (
-            <Card
-              finded={false}
-              id={(characters.indexOf(el) + 1) + idMaker}
-              key={(characters.indexOf(el) + 1) + idMaker}
-              name={el.name}
-              height={el.height}
-              mass={el.mass}
-            />
-          )))
+              <Card
+
+                key={(charFinded.indexOf(el) + 1) + idMaker}
+                name={el.name}
+                height={el.height}
+                mass={el.mass}
+              />
+            )))}
+              <button className={Style.btn} onClick={cleaner}>Show All</button>
+
+            </React.Fragment>
+              :
+              (characters.map((el) => (
+                <Card
+
+                  id={(characters.indexOf(el) + 1) + idMaker}
+                  key={(characters.indexOf(el) + 1) + idMaker}
+                  name={el.name}
+                  height={el.height}
+                  mass={el.mass}
+                />
+              )))
         }
 
 
 
       </Container>
+      <Container className={Style.ContainerPagination}>
+
+{!isLoading && !charFinded.error && <PaginationBar paginate={paginate} totalElements={totalElements} elementsPerPage={10} />}
+</Container>
 
 
     </React.Fragment>
