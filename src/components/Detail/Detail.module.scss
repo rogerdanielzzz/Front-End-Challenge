@@ -24,3 +24,14 @@
         }
     }
 }
+
+@media only screen and (max-width: 880px) {
+
+    .Container {
+       padding-bottom: 10%;
+        .Father {    
+            flex-direction: column;
+          
+        }
+    }
+}

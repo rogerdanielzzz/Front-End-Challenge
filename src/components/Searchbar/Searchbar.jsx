@@ -1,7 +1,7 @@
 //Dependencies import
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import {loadingSwitcher,} from "../../redux/actions/index.js";
 
 // Bootstrap Component

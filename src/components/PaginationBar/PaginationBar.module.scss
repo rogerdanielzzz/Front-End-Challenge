@@ -62,3 +62,25 @@
 .Disabled {
     display: none;
 }
+
+@media only screen and (max-width: 880px) {
+
+    .PaginationContainer {
+
+        .First {
+            font-size: 1.9rem;
+        }
+        .buttonPagination {
+
+            font-size: 1.9rem;
+        }
+        .currentPage {
+            font-size: 1.9rem;
+        }
+
+        .Last {
+            font-size: 1.9rem;
+        }
+    }
+
+}
