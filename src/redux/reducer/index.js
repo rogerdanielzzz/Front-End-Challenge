@@ -8,7 +8,8 @@ import {
     SET_LAST_SEARCH,
     CLEANER_FINDED,
     GET_DETAIL,
-    CLEAN_DETAIL
+    CLEAN_DETAIL,
+    CLEANER_CHARACTER
 } from "../actions/index.js";
 const json = require("../../utils/id.json")
 
@@ -22,7 +23,7 @@ const initialState = {
     totalFinded: 0,
     lastSearch: null,
     isLoading: false,
-    idArr:json
+    idArr: json
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -38,18 +39,18 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 lastSearch: action.payload,
             };
-            case GET_DETAIL:
-                return {
-                    ...state,
-                    charDetail: action.payload,
-                    lastSearch: null
-    
-                };     
-                case CLEAN_DETAIL:
-                    return {
-                        ...state,
-                        charDetail:{},     
-                    };            
+        case GET_DETAIL:
+            return {
+                ...state,
+                charDetail: action.payload,
+                lastSearch: null
+
+            };
+        case CLEAN_DETAIL:
+            return {
+                ...state,
+                charDetail: {},
+            };
         case GET_CHARACTER:
             return {
                 ...state,
@@ -67,9 +68,13 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 charFinded: [],
                 lastSearch: null,
-                totalFinded:0
+                totalFinded: 0
             };
-
+        case CLEANER_CHARACTER:
+            return {
+                ...state,
+                charArr: [],
+            };
         case PAGE_SWITCHER:
             return {
                 ...state,
@@ -85,6 +90,8 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 totalFinded: action.payload,
             };
+
+
         default:
             return {
                 ...state,

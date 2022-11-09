@@ -13,6 +13,8 @@ import Searchbar from '../Searchbar/Searchbar';
 import Style from "./NavBar.module.scss"
 //Img import
 import logo from "../../img/logo.png"
+// import to remplace bootstrap toogle icon
+import "./style.css"
 
 
 //This is a navbar component that will be rendered in all sections

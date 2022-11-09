@@ -1,7 +1,7 @@
 //Dependencies import
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded } from "../../redux/actions/index.js";
+import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded, cleanerCharacter } from "../../redux/actions/index.js";
 // Bootstrap Component
 import Container from 'react-bootstrap/Container';
 // Components made with React
@@ -51,6 +51,8 @@ const CardContainer = () => {
     //a cleaner state function when the component is unmount
     return () => {
       dispatch(cleanerFinded())
+      dispatch(cleanerCharacter())
+
 
 
     }
