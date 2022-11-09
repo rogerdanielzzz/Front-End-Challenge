@@ -1,53 +1,53 @@
+//Dependencies import
 import React, { useEffect } from 'react'
-import Container from 'react-bootstrap/Container';
 import { useDispatch, useSelector } from "react-redux";
+import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded } from "../../redux/actions/index.js";
+// Bootstrap Component
+import Container from 'react-bootstrap/Container';
+// Components made with React
 import Card from "../Card/Card.jsx";
 import Loader from '../Loader/Loader.jsx';
-import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded } from "../../redux/actions/index.js";
-import Style from './CardContainer.module.scss'
 import PaginationBar from "../PaginationBar/PaginationBar.jsx";
+// Style in SCSS format
+import Style from './CardContainer.module.scss'
 
 
+//This is a component where all the characters Cards will rendered
 const CardContainer = () => {
 
 
   const dispatch = useDispatch();
-
+  // Global States called with Redux useDispatch Hook
   const characters = useSelector((state) => state.charArr);
+  const charFinded = useSelector((state) => state.charFinded)
   const pageGlobal = useSelector((state) => state.currentPage);
   const isLoading = useSelector((state) => state.isLoading)
-  const charFinded = useSelector((state) => state.charFinded)
   const totalCharacters = useSelector((state) => state.totalCharacters)
   const totalFinded = useSelector((state) => state.totalFinded)
   const lastSearch = useSelector((state) => state.lastSearch)
-  const arrId = useSelector((state) => state.idArr)
-
+  // A state cleaner function called by button onClick
   let cleaner = () => dispatch(cleanerFinded())
 
 
-
-
-
+  // An Auxiliar Variable for define the total element to render and paginate
   let totalElements = totalCharacters
   if (totalFinded > 0) totalElements = totalFinded
 
+  //Pagination Bar is a reusable component, this is a function to provide by props
   const paginate = (el) => dispatch(pageSwitcher(el));
-  let idMaker = (pageGlobal - 1) * 10;
+
 
   useEffect(() => {
     document.title = "Star Wars | Characters";
-
-    dispatch(cleanerFinded())
-
+    // In every mount of this component the app must be check that the last search is empty, if its true so we are in a search a we only mus paginate 
     if (lastSearch) {
       dispatch(searchCharacter(lastSearch, pageGlobal))
-
     } else {
       dispatch(getCharacter(pageGlobal));
     }
 
     dispatch(loadingSwitcher(true))
-
+    //a cleaner state function when the component is unmount
     return () => {
       dispatch(cleanerFinded())
 
@@ -58,11 +58,10 @@ const CardContainer = () => {
 
 
   return (
-
+// Conditional render if the state with character finded is not empty so we render de result in other case we only render all cards
     <React.Fragment>
-    
       <Container className={Style.Container}>
-
+        
         {isLoading ? <Loader />
           : charFinded.error ?
             <div>
@@ -72,8 +71,7 @@ const CardContainer = () => {
             : charFinded.length > 0 ? <React.Fragment>{(charFinded.map((el) => (
 
               <Card
-
-                key={(charFinded.indexOf(el) + 1) + idMaker}
+                key={charFinded.indexOf(el)}
                 name={el.name}
                 height={el.height}
                 mass={el.mass}
@@ -86,22 +84,18 @@ const CardContainer = () => {
               (characters.map((el) => (
                 <Card
 
-                  id={(characters.indexOf(el) + 1) + idMaker}
-                  key={(characters.indexOf(el) + 1) + idMaker}
+                  key={characters.indexOf(el)}
                   name={el.name}
                   height={el.height}
                   mass={el.mass}
                 />
               )))
         }
-
-
-
       </Container>
       <Container className={Style.ContainerPagination}>
 
-{!isLoading && !charFinded.error && <PaginationBar paginate={paginate} totalElements={totalElements} elementsPerPage={10} />}
-</Container>
+        {!isLoading && !charFinded.error && <PaginationBar paginate={paginate} totalElements={totalElements} elementsPerPage={10} />}
+      </Container>
 
 
     </React.Fragment>
