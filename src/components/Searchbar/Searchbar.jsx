@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded } from "../../redux/actions/index.js";
+import {loadingSwitcher,} from "../../redux/actions/index.js";
 
 // Bootstrap Component
 import Button from 'react-bootstrap/Button';
@@ -13,8 +13,7 @@ import Style from './Searchbar.module.scss'
 import SearchIcon from "../../img/search.svg"
 
 //Reusable SearchBar Component, recive a function by props that will called on submmit
-const Searchbar = ({ handle }) => {
-    const isLoading = useSelector((state) => state.isLoading)
+const Searchbar = ({ handle , toRoute }) => {
     const dispatch = useDispatch();
 
     //Hook to redirect 
@@ -26,7 +25,7 @@ const Searchbar = ({ handle }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        handle(texto).then(() => navigate.push("/"))
+        handle(texto).then(() => navigate.push(toRoute))
         dispatch(loadingSwitcher(true))
 
         e.target.reset()

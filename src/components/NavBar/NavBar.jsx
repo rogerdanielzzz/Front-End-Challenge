@@ -44,7 +44,7 @@ const NavBar = () => {
                         </Link>
 
                     </Nav>
-                    <Searchbar handle={handle} />
+                    <Searchbar handle={handle} toRoute= "/" />
                 </Navbar.Collapse>
             </Container>
         </Navbar>
