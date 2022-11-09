@@ -1,6 +1,9 @@
 //Dependencies import
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { getCharacter, pageSwitcher, loadingSwitcher, searchCharacter, cleanerFinded } from "../../redux/actions/index.js";
+
 // Bootstrap Component
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +14,9 @@ import SearchIcon from "../../img/search.svg"
 
 //Reusable SearchBar Component, recive a function by props that will called on submmit
 const Searchbar = ({ handle }) => {
+    const isLoading = useSelector((state) => state.isLoading)
+    const dispatch = useDispatch();
+
     //Hook to redirect 
     const navigate = useHistory();
     //Local State to set change on text input
@@ -21,6 +27,8 @@ const Searchbar = ({ handle }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handle(texto).then(() => navigate.push("/"))
+        dispatch(loadingSwitcher(true))
+
         e.target.reset()
     }
 
