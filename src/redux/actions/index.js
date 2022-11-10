@@ -35,6 +35,7 @@ export const searchCharacter = (search, page) => {
         dispatch({ type: LOADING_SWITCHER, payload: false });
       } else if (res.data.count <= 0) {
         dispatch({ type: SET_LAST_SEARCH, payload: null });
+        dispatch({ type: LOADING_SWITCHER, payload: false });
 
         dispatch({
           type: SEARCH_CHARACTER,
