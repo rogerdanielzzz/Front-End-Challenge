@@ -19,7 +19,7 @@ const initialState = {
     charDetail: {},
     charFinded: [],
     currentPage: 1,
-    totalCharacters: 82,
+    totalCharacters: 87,
     totalFinded: 0,
     lastSearch: null,
     isLoading: false,

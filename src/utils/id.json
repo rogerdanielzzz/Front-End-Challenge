@@ -327,4 +327,31 @@
         "name": "Tion Medon",
         "id": 82
     }
+    ,
+
+    {
+        "name": "Finn",
+         "id": 83
+    }
+    ,
+    {
+        "name": "Rey",
+        "id": 84
+    }
+    ,
+    {
+        "name": "Poe Dameron",
+        "id": 85
+    }
+    ,
+    {
+        "name": "BB8",
+        "id": 86
+    }
+    ,
+    {
+        "name": "Captain Phasma",
+        "id": 87
+    }
+    
 ]

@@ -12,7 +12,8 @@ export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const CLEANER_CHARACTER = "CLEANER_CHARACTER";
 
-let baseUrl = "https://swapi.dev/api/people/";
+let baseUrl = "https://swapi.py4e.com/api/people/";
+
 
 export const getCharacter = (page) => {
   return function (dispatch) {
