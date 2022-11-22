@@ -104,8 +104,7 @@ export const cleanerFinded = (payload) => {
   return { type: CLEANER_FINDED, payload };
 };
 export const cleanerShowAll = (payload) => {
-  console.log("limpio nuevo");
-
+ 
   return (dispatch) => {
     dispatch({ type: CLEANER_FINDED, payload });
     dispatch(getCharacter(1));
