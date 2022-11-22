@@ -9,10 +9,9 @@ import {
     CLEANER_FINDED,
     GET_DETAIL,
     CLEAN_DETAIL,
-    CLEANER_CHARACTER
+    CLEANER_CHARACTER,
 } from "../actions/index.js";
-const json = require("../../utils/id.json")
-
+const json = require("../../utils/id.json");
 
 const initialState = {
     charArr: [],
@@ -23,7 +22,7 @@ const initialState = {
     totalFinded: 0,
     lastSearch: null,
     isLoading: false,
-    idArr: json
+    idArr: json,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -43,8 +42,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 charDetail: action.payload,
-                lastSearch: null
-
+                lastSearch: null,
             };
         case CLEAN_DETAIL:
             return {
@@ -55,8 +53,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 charArr: action.payload,
-                lastSearch: null
-
+                lastSearch: null,
             };
         case SEARCH_CHARACTER:
             return {
@@ -68,7 +65,7 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 charFinded: [],
                 lastSearch: null,
-                totalFinded: 0
+                totalFinded: 0,
             };
         case CLEANER_CHARACTER:
             return {
@@ -90,7 +87,6 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 totalFinded: action.payload,
             };
-
 
         default:
             return {
